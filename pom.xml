@@ -51,7 +51,6 @@
             <scope>test</scope>
         </dependency>
         <!-- 测试用例依赖 end -->
-
     </dependencies>
     <!-- 通用依赖 end -->
 
