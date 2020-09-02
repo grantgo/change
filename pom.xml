@@ -9,6 +9,9 @@
     <groupId>com.hilamg.change</groupId>
     <artifactId>change</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <modules>
+        <module>eureka-server</module>
+    </modules>
     <!-- 父模块的工程坐标 groupId、artifactId、version end -->
 
     <!-- 当前模块描述 start -->
