@@ -9,9 +9,15 @@
     <groupId>com.hilamg.change</groupId>
     <artifactId>change</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+
+    <!-- 子模块会自动加入 maven多模块 start -->
     <modules>
-        <module>eureka-server</module>
+        <module>change-gateway</module>
+        <module>change-eureka</module>
     </modules>
+    <!-- 子模块会自动加入 maven多模块 start -->
+
+
     <!-- 父模块的工程坐标 groupId、artifactId、version end -->
 
     <!-- 当前模块描述 start -->

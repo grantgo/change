@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+
+    <!-- 继承父模块 start -->
+    <parent>
+        <artifactId>change</artifactId>
+        <groupId>com.hilamg.change</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath/>
+    </parent>
+    <!-- 继承父模块 end -->
+
+    <!-- 已从父级继承 所以删除groupId-->
+
+    <artifactId>change-eureka</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <!-- 模块名 start -->
+    <name>change-eureka</name>
+    <!-- 模块名 end -->
+
+    <!-- 描述信息 start -->
+    <description>Demo project for Spring Boot</description>
+    <!-- 描述信息 end -->
+
+    <!-- eureka server模块依赖 start -->
+    <dependencies>
+        <!-- eureka server 提供服务注册与发现 tips:从spring-boot2.x 后使用 netflix -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+        </dependency>
+        <!-- eureka server 提供服务注册与发现 tips:从spring-boot2.x 后使用 netflix -->
+    </dependencies>
+    <!-- eureka server模块依赖 end -->
+
+    <build>
+        <!-- spring-boot 的 maven 插件 start -->
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+        <!-- spring-boot 的 maven 插件 end -->
+    </build>
+
+</project>
