@@ -57,8 +57,8 @@
 
     <!-- dependencyManagement 用于子模块的解析依赖 start -->
     <dependencyManagement>
-        <!--  标记spring-cloud 的版本 start -->
         <dependencies>
+            <!--  标记spring-cloud 的版本 start -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
@@ -66,9 +66,8 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <!--  标记spring-cloud 的版本 end -->
         </dependencies>
-        <!--  标记spring-cloud 的版本 end -->
-
     </dependencyManagement>
     <!-- dependencyManagement 用于子模块的解析依赖 end-->
 
@@ -77,7 +76,7 @@
         <repository>
             <id>spring-milestones</id>
             <name>Spring Milestones</name>
-            <url>https://repo.spring.io/milestones</url>
+            <url>https://repo.spring.io/milestone</url>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
