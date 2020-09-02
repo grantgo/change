@@ -5,10 +5,83 @@
 
     <!-- 作为父module 删除parentId -->
 
+    <!-- 父模块的工程坐标 groupId、artifactId、version start -->
     <groupId>com.hilamg.change</groupId>
     <artifactId>change</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <!-- 父模块的工程坐标 groupId、artifactId、version end -->
+
+    <!-- 当前模块描述 start -->
     <name>change</name>
     <description>for hilamg java team</description>
+    <!-- 当前模块描述 end -->
 
+    <!-- 项目打包类型，默认为jar 对于聚合项目的父模块 必须为pom start -->
+    <packaging>pom</packaging>
+    <!-- 项目打包类型，默认为jar 对于聚合项目的父模块 必须为pom end -->
+
+    <!-- spring-boot 版本 2.1.4 start -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.4.RELEASE</version>
+    </parent>
+    <!-- spring-boot 版本 2.1.4 end -->
+
+    <!-- 标记spring-cloud版本 Greenwich 与 springboot 2.1.x 对应 start -->
+    <properties>
+        <spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
+    </properties>
+    <!-- 标记spring-cloud版本 Greenwich 与 springboot 2.1.x 对应 end -->
+
+    <!-- 通用依赖 start -->
+    <dependencies>
+        <!-- lombook IDEA 需要安装其插件 start -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.18</version>
+        </dependency>
+        <!-- lombook IDEA 需要安装其插件 end -->
+
+        <!-- 测试用例依赖 start -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- 测试用例依赖 end -->
+
+    </dependencies>
+    <!-- 通用依赖 end -->
+
+    <!-- dependencyManagement 用于子模块的解析依赖 start -->
+    <dependencyManagement>
+        <!--  标记spring-cloud 的版本 start -->
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+        <!--  标记spring-cloud 的版本 end -->
+
+    </dependencyManagement>
+    <!-- dependencyManagement 用于子模块的解析依赖 end-->
+
+    <!-- 配置远程仓库 start -->
+    <repositories>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestones</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+    <!-- 配置远程仓库 end -->
 </project>
