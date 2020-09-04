@@ -1,28 +1,34 @@
 package com.hilamg.change.filter;
 
+import com.google.common.util.concurrent.RateLimiter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
+
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * token 过滤器
+ * 限流过滤器
  */
 
 @Slf4j
 @Component
-public class TokenFilter extends AbstractPreZuulFilter{
+@SuppressWarnings("all")
+public class RateLimterFilter extends AbstractPreZuulFilter{
 
+    /** 每秒获取两个令牌 */
+    RateLimiter rateLimiter = RateLimiter.create(2.0);
 
     @Override
     protected Object cRun() {
         HttpServletRequest request = context.getRequest();
-        log.info(String.format("%s request to %s"),request.getMethod(),request.getRequestURL().toString());
-        Object token = request.getParameter("token");
-        // TODO token 可做更多逻辑
-        if (null == token){
-           return fail(401,"token is null");
+        // 尝试获取令牌
+        if (rateLimiter.tryAcquire()){
+            log.info("get rate token success");
+            return success();
+        }else{
+            log.error("rate limit {}",request.getRequestURI());
+            return fail(402,"error: rate limit");
         }
-        return success();
     }
 
     /**
@@ -33,6 +39,6 @@ public class TokenFilter extends AbstractPreZuulFilter{
      */
     @Override
     public int filterOrder() {
-        return 1;
+        return 2;
     }
 }
